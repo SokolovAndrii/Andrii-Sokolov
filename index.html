@@ -1,523 +1,763 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Андрій Соколов — AI Automation Engineer | Портфоліо AgentUp</title>
+<title>Andrii Sokolov — Portfolio</title>
+<meta name="description" content="Andrii Sokolov — AI Automation Engineer. LangGraph multi-agent systems, n8n orchestration, Supabase. Builder of the AgentUp platform: 10 production AI agents, full-stack site, cabinet and database.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAA4wSURBVHhe7Z0LkGNVmcfvPefm1e95NDMNTWcmne6m04/knsdNOt2dTLrzuPcm6WGYaWAYH1iWsOKia6EFVas7u+i66/oALC3UclBeMitbAo6jUGUplpQ8BHkIg8WCKyNMMYIIiqCI3K3vJt0zc3qQmeQm/cqv6lQn939ukj7fOd95nytJDRo0aNCgQYMGDZYw35IkvDEy0blWTQyuoZlxz3Ai064ZZ7bH8tuah6cyHVpusjmcGuoM8Y16MOgR729wkqwfnehv1nI73cz4gouZd2FqvoC0ooVi2ywUP8tC8e0WGt9h4fEdpdcQxrZZiBcszMw/KMx40E31a3w0d+F6kiMXSJJL/I4GR2FJEmpRUwkPN6/EzPyVnZgTsxaKnQkJ+pzCjB+6SPZqN9UvdYUz5/toZrY1Vih2xPMzLZo+6yWZd3u5cYlHzV2hUHMfZuaTYAwU32Hh+HYL0/wLbm5c18oyRdrV1SR+/6qlY3DM7+XGxzHP/xpyNBo7y8I8/0sPNa5oItlCF033gHHE+06Ern66viWyJekmuY9jlr8HRbdaaOJsC/PCix6mf3atmh4U71k1rBlNDru5eQ2KzpQTJf+km+Y+tiacGhLjOsXGwTG/h+gXYZa/f87YCjX/p41OaWLcFcupQ5Onu5nxNfjnwW8rzPhuE8lkxXi1plWdHlOoeZPt6sZ3WG5u7oV6R4y3ovCS7CVIm/kr+HaFmd9uiyS4GKfeQElUmHGDXYnHtlpuqv8zXWkVdsdIbATz/N0osdPCWuHnzWQqJcZZbFqHE2OYF+6yfyPPP9w2nGRinGVJU2T63ZCz0NiZlptkPmpJkizGWUp4SOYDKDrzJrS+fCTzQVFfVnho9kp58lwLR4uPtY8mVFFfqqwdig5inr9PTuy0oOk6G5LcYpwlDfREXdy4VU6eZync3Lsc291JSVLcNPcVOXEuNFvvgiatGGdJEuoMtWBm/Bhyj4fqnxL15YY7kv6IPGn3HQ6s7YudJupLCkq7mjAz75Inz7G8JP0RUV+ueMJT58sw7MELT5wyHN0g6ksCqFxdzLjd9puR9CWivtzxhpPvkCdmLczNhwYGBlpFfdFxq9mvyYnzLBfJXi5qKwVPJPV+qBNcVL9d1BYVXzj1Yahw3VT/uqitNDwk/Wn4Xz0k91lRWxRahibG5fhZlksr/CyZlBRRX4koVL8d6rkWNXWWqNWVzlCoBfH8QRTd+mp7OLlJ1Fcqp57B1yFeeA5FZ146JTq1eJWyEknvgUq3WZ16h6itdJqHExmolF0sd4uo1YWWkcSk/QOo8R1RWy24SWYPuKImMl0QtZqyW5IQpsZjKLb1L2tHkt2ivlrwh5MdSCv8HiaTQqFQ/YYrmqBjkthpeWnmY6K22vBEtlwE410+mvmwqNUESqkLs/xvsFY83N0d84n6agPGjBAzfo214ouhULJF1B3HO5p6J+R+H83+o6itVuyhCigFLHORqDkOZsbjSCu+NDo62ixqtaZ5Q+AUHBiZRkHyfrmXXC4H2edwkFyFg+wq3MevtP+KoZeUQpB8QQ6Sz6HNkfdKDs94gf9HzDyMmPF/UD+KumO0EGj5nG25SO4/RK2GYOQfPVcO8v1yf/T30uC4JQ1NvnUIvd21hCX3ku9BK1r8ompwk+y/QKuweTQ1JWqOodDc9TCZ3klSvaJWC7B/2JT7ow/ZCRhKWHbinxEvh7GTCwPlAPeGJizsD28Rv68a1oTGe2DZi0Jze0XNEdYNxFsRz7+KqXG3qNUCeTP5z/ncPp/gJ5D4diK/TQhNWKhn9J3id1YLJrk7ES/8OahpbaJWNT51qogmz6lLRSMHyLXgKko5Xkz4eOl6aOLEg2iAwXEL9QzvEr+3Wjxq+j2w4qOVpWdErWoUNfcVObbNah+ZCIiak8ibI1dIQ8nj5HRwHZOWNDhhyX3aX+Qgf1ru44/LQX7ADv3lv/PvtbnXj0v92mv1MMBpI1o3uCFY9yRqVQGTLYgYBzE3nhI1J8Gnj2yFBD4m8cGl2Lk4bsl97HbkHznPs6F/s1+SvCe6wkLuZQ8fUxJsA4QcNwCAqH4AM+NZR1tDa+h4DyzTcDP9q6LmGF1dTXKQH7Rz+VzCw9/QJOT45/Cmka3iLSeK3MseWmgA50sA4CLZq2AJzobRyc2iVjHuSMaAJpaH5M4XNadAm0Yvtv3+0f4ejNGv/Vbq8p8hxj8Z5GD9DOBVp89B47OWj+YqzjALcEeyl8HSvTaertVqMSQH2aPzuX/eCHELnzZoipFPFjlYdkFzpaqGLqh5NDkMTXUv03eLWsUoTL8WNkfADhVRcwJX9xnD0kDs2HY+uJ4AcWSoe94AdagDApS2I57/m1szviVqFYOI8RPMzecdrViOwh4emHc/5RIwOG5h/6guxq2E4xugNi4IwEx/Bmvmz8TrFYOY+STm5iPidaeQA/Qzx/j/wXFL7uMvt7V1rxXjVkI96wAAE/0exM2D4vWKmIWxGJZ/AVPjTlFzCjlArjvGAOB+gvyAGK9S5F5aVwMozNgvs/zLjkzS+P1+L2LmK4jq+0TNKeSAesNCA7D7xXiVUncDcHMv1gqvJ5Oz1c8PUEqbEDNfc3HzNlFzCjlArggAAAAAElFTkSuQmCC">
 <style>
-  :root {
-    --bg: #0d1b22;
-    --bg-alt: #112832;
-    --surface: #15303c;
-    --surface-border: #234555;
-    --text: #e9f2f5;
-    --text-soft: #aec4cd;
-    --text-faint: #84a0aa;
-    --accent: #2bd6a8;
-    --accent-strong: #5be8c2;
-    --accent-contrast: #06241c;
-    --shadow: 0 16px 40px -18px rgba(0, 0, 0, 0.55);
-    --radius-lg: 20px;
-    --radius-md: 14px;
-    --radius-sm: 9px;
-    --max-width: 1080px;
-  }
+:root {
+  --paper: #fafcfc;
+  --paper-2: #eef3f8;
+  --surface: #ffffff;
+  --ink: #0d2531;
+  --ink-soft: #4a6178;
+  --ink-faint: #7d92a8;
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
+  --accent-soft: rgba(37, 99, 235, 0.10);
+  --accent-contrast: #f3f7ff;
+  --signal: #e8963c;
+  --line: #d6dfe9;
+  --line-soft: #e5eaf2;
+  --shadow: 0 18px 44px -20px rgba(13, 37, 49, 0.22);
+  --shadow-sm: 0 8px 22px -12px rgba(13, 37, 49, 0.18);
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  --font-display: "Sora", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
 
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.55;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
+  --radius-lg: 18px;
+  --radius-md: 13px;
+  --radius-sm: 8px;
+  --max-w: 1120px;
+}
 
-  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; }
+:root[data-theme="dark"] {
+  --paper: #0a1420;
+  --paper-2: #0d1a28;
+  --surface: #102030;
+  --ink: #eaf1f8;
+  --ink-soft: #a7bcd2;
+  --ink-faint: #7690a8;
+  --accent: #5aa7ff;
+  --accent-strong: #8cc4ff;
+  --accent-soft: rgba(90, 167, 255, 0.12);
+  --accent-contrast: #06182e;
+  --signal: #f0a851;
+  --line: #22374e;
+  --line-soft: #18293c;
+  --shadow: 0 20px 48px -20px rgba(0, 0, 0, 0.6);
+  --shadow-sm: 0 10px 26px -14px rgba(0, 0, 0, 0.55);
+}
 
-  /* ---------- HERO ---------- */
-  .hero {
-    background: radial-gradient(circle at 18% -10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
-                linear-gradient(180deg, var(--bg-alt), var(--bg));
-    border-bottom: 1px solid var(--surface-border);
-    padding: 56px 0 44px;
-  }
-  .hero-top { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
-  .hero-top img { height: 56px; width: auto; filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent) 35%, transparent)); }
-  .hero-top .brand-name { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
-  .hero-top .brand-tag { font-size: 0.85rem; color: var(--text-faint); }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background .3s, color .3s;
+}
+a { color: var(--accent-strong); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var(--ink); margin: 0; }
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
-  h1.title {
-    font-size: 2.3rem;
-    margin: 0 0 10px;
-    line-height: 1.2;
-    background: linear-gradient(90deg, var(--text), var(--accent-strong));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .subtitle { font-size: 1.1rem; color: var(--text-soft); margin: 0 0 22px; max-width: 720px; }
-  .lede { color: var(--text-soft); max-width: 760px; font-size: 0.98rem; }
+/* ---------- TOP BAR ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { height: 34px; width: 34px; border-radius: 9px; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; letter-spacing: .01em; }
+.brand-name span { color: var(--accent); }
+.controls { display: flex; align-items: center; gap: 8px; }
+.ctrl-btn {
+  font-family: var(--font-mono); font-size: .8rem; font-weight: 600;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  padding: 7px 12px; border-radius: 999px; cursor: pointer; transition: all .18s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.ctrl-btn:hover { border-color: var(--accent); color: var(--accent); }
+.lang-seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
+.lang-seg button {
+  font-family: var(--font-mono); font-size: .78rem; font-weight: 700;
+  border: none; background: transparent; color: var(--ink-faint);
+  padding: 7px 13px; cursor: pointer; transition: all .18s;
+}
+.lang-seg button.on { background: var(--accent); color: #fff; }
 
-  .contact-row { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 18px 0 26px; }
-  .contact-row a, .contact-row span {
-    color: var(--text-soft);
-    text-decoration: none;
-    font-size: 0.92rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .contact-row a:hover { color: var(--accent-strong); }
-  .contact-row .ico { color: var(--accent-strong); }
+/* ---------- HERO ---------- */
+.hero { padding: 74px 0 56px; position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 15% -20%, var(--accent-soft), transparent 45%),
+    radial-gradient(circle at 90% 10%, var(--accent-soft), transparent 40%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: .8rem; font-weight: 600;
+  color: var(--accent-strong); background: var(--accent-soft);
+  padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+}
+.eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+h1.title { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
+h1.title .grad { background: linear-gradient(100deg, var(--accent), var(--accent-strong)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.subtitle { font-size: clamp(1.05rem, 2.4vw, 1.32rem); color: var(--ink-soft); font-weight: 500; max-width: 720px; margin-bottom: 12px; }
+.lede { font-size: 1.02rem; color: var(--ink-soft); max-width: 680px; margin-bottom: 30px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 34px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--font-display); font-weight: 600; font-size: .96rem;
+  padding: 13px 22px; border-radius: 999px; cursor: pointer; transition: all .2s; border: 1px solid transparent;
+}
+.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--accent-strong); text-decoration: none; transform: translateY(-2px); }
+.btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
-  .role-tag {
-    display: inline-block;
-    background: color-mix(in srgb, var(--accent) 16%, transparent);
-    color: var(--accent-strong);
-    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-    border-radius: 999px;
-    padding: 6px 16px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
+/* stat row */
+.stat-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.stat {
+  background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius-md);
+  padding: 16px 20px; min-width: 130px; box-shadow: var(--shadow-sm);
+}
+.stat .num { font-family: var(--font-display); font-weight: 800; font-size: 1.85rem; color: var(--accent); line-height: 1; }
+.stat .lbl { font-size: .82rem; color: var(--ink-faint); margin-top: 6px; }
 
-  .about-me { color: var(--text-soft); max-width: 760px; font-size: 0.98rem; margin: 0 0 8px; }
+/* ---------- SECTIONS ---------- */
+section { padding: 54px 0; }
+.section-alt { background: var(--paper-2); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.sec-head { margin-bottom: 34px; max-width: 760px; }
+.sec-kicker { font-family: var(--font-mono); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 10px; }
+.sec-title { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 800; letter-spacing: -.01em; margin-bottom: 12px; }
+.sec-sub { color: var(--ink-soft); font-size: 1.02rem; }
 
-  .stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
-  .stat-pill {
-    background: var(--surface);
-    border: 1px solid var(--surface-border);
-    border-radius: 999px;
-    padding: 9px 18px;
-    font-size: 0.88rem;
-    color: var(--text-soft);
-  }
-  .stat-pill strong { color: var(--accent-strong); }
+/* about grid */
+.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
+.about-text p { color: var(--ink-soft); margin: 0 0 16px; }
+.about-text strong { color: var(--ink); }
+.info-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); }
+.info-card h4 { font-size: 1rem; margin-bottom: 16px; }
+.info-list { list-style: none; padding: 0; margin: 0; }
+.info-list li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dashed var(--line-soft); font-size: .92rem; }
+.info-list li:last-child { border-bottom: none; }
+.info-list .k { color: var(--ink-faint); }
+.info-list .v { color: var(--ink); font-weight: 600; text-align: right; }
 
-  /* ---------- SECTIONS ---------- */
-  section.block { padding: 46px 0; border-bottom: 1px solid var(--surface-border); }
-  section.block:last-of-type { border-bottom: none; }
-  h2.h2 {
-    font-size: 1.5rem;
-    margin: 0 0 6px;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  h2.h2::before {
-    content: "";
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
-    display: inline-block;
-  }
-  .h2-sub { color: var(--text-faint); font-size: 0.9rem; margin: 0 0 26px; }
+/* skills */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.skill-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-sm); transition: transform .2s, border-color .2s; }
+.skill-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.skill-card .ic { width: 40px; height: 40px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 14px; }
+.skill-card h4 { font-size: 1.02rem; margin-bottom: 8px; }
+.skill-card p { color: var(--ink-soft); font-size: .9rem; margin: 0; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tag { font-family: var(--font-mono); font-size: .74rem; font-weight: 600; color: var(--accent-strong); background: var(--accent-soft); padding: 4px 10px; border-radius: 6px; }
 
-  /* ---------- STACK GRID ---------- */
-  .stack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 14px;
-  }
-  .stack-item {
-    background: var(--surface);
-    border: 1px solid var(--surface-border);
-    border-radius: var(--radius-md);
-    padding: 16px 18px;
-  }
-  .stack-item .label { font-weight: 600; color: var(--accent-strong); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .stack-item .value { color: var(--text-soft); font-size: 0.92rem; }
+/* flagship */
+.flagship { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 34px; box-shadow: var(--shadow); }
+.flagship-top { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; flex-wrap: wrap; }
+.flagship-top .badge { font-family: var(--font-mono); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #fff; background: var(--accent); padding: 4px 11px; border-radius: 999px; }
+.flagship h3 { font-size: 1.5rem; }
+.flagship .site-link { font-family: var(--font-mono); font-size: .88rem; color: var(--ink-faint); }
+.flagship > p { color: var(--ink-soft); margin: 14px 0 22px; max-width: 820px; }
+.built-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.built-item { border: 1px solid var(--line-soft); border-radius: var(--radius-md); padding: 18px; background: var(--paper); }
+.built-item h4 { font-size: .98rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.built-item h4 .n { color: var(--accent); font-family: var(--font-mono); }
+.built-item p { color: var(--ink-soft); font-size: .88rem; margin: 0; }
 
-  /* ---------- AGENT CARDS ---------- */
-  .agent-card {
-    background: var(--surface);
-    border: 1px solid var(--surface-border);
-    border-radius: var(--radius-lg);
-    padding: 26px 28px;
-    margin-bottom: 22px;
-    box-shadow: var(--shadow);
-  }
-  .agent-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
-  .agent-title { font-size: 1.18rem; font-weight: 700; color: var(--text); margin: 0; }
-  .agent-num { color: var(--accent-strong); font-weight: 700; margin-right: 8px; }
+/* agents */
+.agent-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.agent-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-sm); position: relative; transition: transform .2s, border-color .2s; display: flex; flex-direction: column; }
+.agent-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.agent-head { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.agent-num { font-family: var(--font-mono); font-weight: 800; font-size: 1.05rem; color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-strong)); min-width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; }
+.agent-head h4 { font-size: 1.05rem; }
+.agent-head .role { font-family: var(--font-mono); font-size: .74rem; color: var(--accent); margin-top: 3px; }
+.agent-card p { color: var(--ink-soft); font-size: .9rem; margin: 0 0 14px; flex: 1; }
+.agent-meta { display: flex; flex-wrap: wrap; gap: 7px; }
+.agent-meta .chip { font-family: var(--font-mono); font-size: .7rem; font-weight: 600; color: var(--ink-soft); background: var(--paper-2); border: 1px solid var(--line-soft); padding: 3px 9px; border-radius: 6px; }
+.agent-meta .chip.live { color: #0a7d4d; background: rgba(16, 185, 129, .1); border-color: rgba(16, 185, 129, .25); }
+:root[data-theme="dark"] .agent-meta .chip.live { color: #4ade80; }
 
-  .status-badge {
-    display: inline-block;
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 4px 11px;
-    border-radius: 999px;
-    white-space: nowrap;
-    letter-spacing: 0.02em;
-  }
-  .status-done { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent-strong); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
-  .status-progress { background: color-mix(in srgb, #e8b339 22%, transparent); color: #f0c75e; border: 1px solid color-mix(in srgb, #e8b339 45%, transparent); }
-  .status-planned { background: color-mix(in srgb, var(--text-faint) 18%, transparent); color: var(--text-faint); border: 1px solid var(--surface-border); }
+/* arch */
+.arch-flow { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 30px; box-shadow: var(--shadow-sm); margin-bottom: 26px; overflow-x: auto; }
+.flow-line { display: flex; align-items: center; gap: 12px; min-width: max-content; font-family: var(--font-mono); font-size: .9rem; }
+.flow-node { background: var(--accent-soft); border: 1px solid var(--accent); color: var(--accent-strong); padding: 12px 18px; border-radius: var(--radius-sm); font-weight: 600; white-space: nowrap; }
+.flow-arrow { color: var(--ink-faint); font-size: 1.2rem; }
+.arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.arch-card { border: 1px solid var(--line-soft); border-radius: var(--radius-md); padding: 20px; background: var(--surface); }
+.arch-card h4 { font-size: 1rem; margin-bottom: 8px; color: var(--accent-strong); }
+.arch-card p { color: var(--ink-soft); font-size: .9rem; margin: 0; }
 
-  .agent-desc { color: var(--text-soft); font-size: 0.96rem; margin: 0 0 18px; }
+/* timeline */
+.timeline { border-left: 2px solid var(--line); margin-left: 8px; padding-left: 28px; }
+.tl-item { position: relative; padding-bottom: 30px; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before { content: ""; position: absolute; left: -37px; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: var(--accent); border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--accent); }
+.tl-date { font-family: var(--font-mono); font-size: .8rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.tl-item h4 { font-size: 1.08rem; margin-bottom: 6px; }
+.tl-item p { color: var(--ink-soft); font-size: .93rem; margin: 0; }
 
-  /* flow diagram */
-  .flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0; margin: 0 0 18px; }
-  .flow-chip {
-    background: var(--bg-alt);
-    border: 1px solid var(--surface-border);
-    border-radius: var(--radius-sm);
-    padding: 8px 13px;
-    font-size: 0.82rem;
-    color: var(--text);
-    white-space: nowrap;
-  }
-  .flow-arrow { color: var(--accent); font-size: 1rem; margin: 0 6px; flex-shrink: 0; }
+/* contact */
+.contact-card { background: linear-gradient(135deg, var(--accent), var(--accent-strong)); border-radius: var(--radius-lg); padding: 44px 34px; text-align: center; color: #fff; box-shadow: var(--shadow); }
+.contact-card h2 { color: #fff; font-size: clamp(1.5rem, 3.4vw, 2.1rem); margin-bottom: 12px; }
+.contact-card p { color: rgba(255,255,255,.9); max-width: 560px; margin: 0 auto 26px; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.contact-links a {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28);
+  color: #fff; font-family: var(--font-display); font-weight: 600; font-size: .95rem;
+  padding: 12px 20px; border-radius: 999px; transition: all .18s;
+}
+.contact-links a:hover { background: #fff; color: var(--accent-strong); text-decoration: none; }
 
-  .agent-points { margin: 0; padding-left: 0; list-style: none; }
-  .agent-points li {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 9px;
-    font-size: 0.92rem;
-    color: var(--text-soft);
-  }
-  .agent-points li::before {
-    content: "›";
-    position: absolute;
-    left: 0;
-    color: var(--accent-strong);
-    font-weight: 700;
-  }
-  .agent-points li strong { color: var(--text); font-weight: 600; }
+footer { padding: 30px 0; text-align: center; color: var(--ink-faint); font-size: .85rem; border-top: 1px solid var(--line-soft); }
 
-  /* ---------- SKILLS ---------- */
-  .skill-group { margin-bottom: 20px; }
-  .skill-group-title { font-weight: 700; color: var(--accent-strong); font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
-  .skill-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill-tag {
-    background: var(--bg-alt);
-    border: 1px solid var(--surface-border);
-    color: var(--text-soft);
-    font-size: 0.84rem;
-    padding: 6px 13px;
-    border-radius: 999px;
-  }
-
-  /* ---------- CHALLENGES ---------- */
-  .challenge {
-    background: var(--bg-alt);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 12px 18px;
-    margin-bottom: 12px;
-    font-size: 0.92rem;
-    color: var(--text-soft);
-  }
-  .challenge strong { color: var(--text); display: block; margin-bottom: 3px; font-size: 0.94rem; }
-
-  /* ---------- FOOTER ---------- */
-  footer { padding: 34px 0 50px; text-align: center; color: var(--text-faint); font-size: 0.85rem; }
-  footer .accent-line { color: var(--accent-strong); font-weight: 600; }
-
-  @media print {
-    body { background: #fff; }
-    .hero { background: var(--bg-alt); }
-    section.block { page-break-inside: avoid; }
-    .agent-card { page-break-inside: avoid; }
-  }
-
-  @media (max-width: 600px) {
-    h1.title { font-size: 1.7rem; }
-    .agent-card { padding: 20px; }
-  }
+@media (max-width: 760px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0 40px; }
+  .brand-name { display: none; }
+}
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="wrap">
-    <div class="hero-top">
-      <img src="data:image/png;base64,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" alt="AgentUp logo">
-      <div>
-        <div class="brand-name">Засновник AgentUp</div>
-        <div class="brand-tag">agentup.agency</div>
+<!-- ========== TOP BAR ========== -->
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="Logo">
+      <span class="brand-name" data-i18n="brand">Andrii <span>Sokolov</span></span>
+    </div>
+    <div class="controls">
+      <div class="lang-seg" role="group" aria-label="Language">
+        <button id="langEN" class="on" onclick="setLang('en')">EN</button>
+        <button id="langUK" onclick="setLang('uk')">UA</button>
       </div>
-    </div>
-    <span class="role-tag">AI Automation Engineer · n8n & LLM Workflow Developer</span>
-    <h1 class="title">Андрій Соколов</h1>
-    <p class="subtitle">Будую AI-агентів та n8n-автоматизації, що реально працюють у продакшені — з живими користувачами, зовнішніми API та грошима на кону, а не демо-прототипи.</p>
-
-    <div class="contact-row">
-      <a href="mailto:anri.sokol.work@gmail.com"><span class="ico">✉</span> anri.sokol.work@gmail.com</a>
-      <a href="tel:+380935114098"><span class="ico">☎</span> +380 93 511 40 98</a>
-      <a href="https://t.me/andruha_sokol" target="_blank" rel="noopener"><span class="ico">✈</span> @andruha_sokol</a>
-      <a href="https://agentup.agency" target="_blank" rel="noopener"><span class="ico">🔗</span> agentup.agency</a>
-      <span><span class="ico">📍</span> Віддалено</span>
-    </div>
-
-    <p class="lede">
-      Останній час розробляю <strong>AgentUp</strong> — власну агенцію автоматизації для малого бізнесу,
-      де самостійно пройшов весь шлях: від архітектури n8n-воркфлоу та промпт-інженерії до інтеграції
-      зовнішніх API, проєктування бази даних і продакшен-деплою на власному сервері. Нижче — детальний
-      розбір цього проєкту як кейс мого підходу до роботи: 5 AI-агентів, технологічний стек та реальні
-      інженерні задачі, які довелось вирішити по дорозі.
-    </p>
-    <div class="stats">
-      <div class="stat-pill"><strong>5</strong> AI-агентів в архітектурі</div>
-      <div class="stat-pill"><strong>2</strong> повністю в production</div>
-      <div class="stat-pill"><strong>100+</strong> нод n8n</div>
-      <div class="stat-pill"><strong>10+</strong> зовнішніх API та сервісів</div>
-      <div class="stat-pill"><strong>self-hosted</strong> інфраструктура на VPS</div>
+      <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Theme">
+        <span id="themeIcon">🌙</span>
+      </button>
     </div>
   </div>
-</div>
+</header>
 
-<div class="wrap">
-
-  <!-- STACK -->
-  <section class="block">
-    <h2 class="h2">Технологічний стек</h2>
-    <p class="h2-sub">Інструменти та сервіси, з якими реально побудована й працює система</p>
-    <div class="stack-grid">
-      <div class="stack-item"><div class="label">Оркестрація</div><div class="value">n8n (self-hosted)</div></div>
-      <div class="stack-item"><div class="label">LLM</div><div class="value">OpenRouter — Gemini 2.5 Flash, GPT-4o-mini, DeepSeek (маршрутизація моделі за складністю задачі)</div></div>
-      <div class="stack-item"><div class="label">База даних</div><div class="value">Supabase (PostgreSQL)</div></div>
-      <div class="stack-item"><div class="label">CRM</div><div class="value">Notion API</div></div>
-      <div class="stack-item"><div class="label">Месенджери</div><div class="value">Telegram Bot API, Instagram Graph API (Meta)</div></div>
-      <div class="stack-item"><div class="label">Соцмережі / постинг</div><div class="value">Buffer (MCP), Instagram Graph API</div></div>
-      <div class="stack-item"><div class="label">Генерація зображень</div><div class="value">FLUX.2 [pro] (Together AI), з підтримкою фото-референсу</div></div>
-      <div class="stack-item"><div class="label">Відгуки</div><div class="value">Google Places API</div></div>
-      <div class="stack-item"><div class="label">Інфраструктура</div><div class="value">Hetzner VPS, Docker, Traefik, Let's Encrypt SSL</div></div>
-      <div class="stack-item"><div class="label">Frontend</div><div class="value">Статичний сайт, адаптивний, укр/eng, темна/світла тема</div></div>
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span><span data-i18n="hero.available">Open to work · Remote / Kyiv, Ukraine</span></span>
+    <h1 class="title" data-i18n="hero.title">AI Automation Engineer &amp; <span class="grad">LangGraph Systems Builder</span></h1>
+    <p class="subtitle" data-i18n="hero.subtitle">I design and ship production multi-agent AI systems — LangGraph reasoning cores wired to n8n webhooks, Supabase and real business channels.</p>
+    <p class="lede" data-i18n="hero.lede">Founder and sole engineer of AgentUp — an AI automation platform where I built 10 production AI agents, the full website, every automation and the entire database from scratch.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#agents" data-i18n="hero.cta1">Explore the 10 AI agents →</a>
+      <a class="btn btn-ghost" href="mailto:anri.sokol.work@gmail.com" data-i18n="hero.cta2">Contact me</a>
     </div>
-  </section>
-
-  <!-- AGENTS -->
-  <section class="block">
-    <h2 class="h2">Архітектура агентів</h2>
-    <p class="h2-sub">5 незалежних AI-агентів, кожен — окремий n8n-воркфлоу з власною логікою, базою знань і Telegram-ботом керування</p>
-
-    <!-- Agent 1 -->
-    <div class="agent-card">
-      <div class="agent-head">
-        <h3 class="agent-title"><span class="agent-num">01</span>Instagram DM-агент</h3>
-        <span class="status-badge status-done">✅ Production</span>
-      </div>
-      <p class="agent-desc">
-        Кваліфікує вхідні ліди в Instagram Direct у реальному часі: веде діалог, по черзі з'ясовує
-        ім'я, тип бізнесу та біль клієнта, і передає "гарячого" ліда людині — реальний канал з живими діалогами.
-      </p>
-      <div class="flow">
-        <span class="flow-chip">Instagram DM</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">Webhook (миттєвий ACK)</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">AI Agent + пам'ять (10 повідомлень)</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">кваліфікація ліда</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">Supabase + Notion CRM</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">Telegram-сповіщення</span>
-      </div>
-      <ul class="agent-points">
-        <li><strong>Офіційний Meta App у Live-режимі</strong> — не тестова інтеграція, реальні DM реальних клієнтів</li>
-        <li><strong>Передача діалогу людині за справжнім сигналом</strong>, а не таймером: розпізнається власна відповідь Андрія в Instagram (echo) і відрізняється від echo самого бота</li>
-        <li><strong>Окремий Telegram control-бот</strong> із 4 AI-інструментами: оновлення бази знань агента, запити до CRM, резюме переписки конкретного ліда, нотатки по угоді</li>
-        <li><strong>Виправлено продакшн-баг</strong> подвійної обробки одного повідомлення — Meta ретраїла webhook через таймаут довгої обробки; вирішено патерном миттєвого ACK до запуску AI</li>
-        <li><strong>Розширення на Telegram-бот і чат-віджет сайту</strong> з "boss-режимом" — власник може напряму запитати агента про статистику лідів у Telegram</li>
-      </ul>
+    <div class="stat-row">
+      <div class="stat"><div class="num">10</div><div class="lbl" data-i18n="stat.agents">Production AI agents</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl" data-i18n="stat.years">Years in AI automation</div></div>
+      <div class="stat"><div class="num">9</div><div class="lbl" data-i18n="stat.channels">Channels &amp; surfaces</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl" data-i18n="stat.solo">Built solo, end-to-end</div></div>
     </div>
+  </div>
+</section>
 
-    <!-- Agent 2 -->
-    <div class="agent-card">
-      <div class="agent-head">
-        <h3 class="agent-title"><span class="agent-num">02</span>Контент-агент</h3>
-        <span class="status-badge status-done">✅ Production</span>
-      </div>
-      <p class="agent-desc">
-        Генерує та публікує пости одночасно на 4 платформи — Instagram, Telegram, LinkedIn, X —
-        кожну своєю мовою й тоном, з AI-зображеннями за фотореференсом.
-      </p>
-      <div class="flow">
-        <span class="flow-chip">Telegram-команда (текст/фото)</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">AI визначає намір</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">генерація тексту + FLUX.2 зображення</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">прев'ю з кнопками</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">публікація (нативні API + Buffer MCP)</span>
-      </div>
-      <ul class="agent-points">
-        <li><strong>Мовна стратегія за каналом</strong>: укр для Instagram/особистого Telegram-каналу, eng для LinkedIn/X (канали пошуку клієнтів)</li>
-        <li><strong>Перенесення обличчя/об'єкта з фото-референсу</strong> у згенеровану сцену через FLUX.2 reference images</li>
-        <li><strong>Інтеграція через Buffer MCP-сервер</strong> для LinkedIn і X — нестандартний шлях, бо класичний Buffer REST API закритий для нових інтеграцій</li>
-        <li><strong>Автоматичне щотижневе очищення</strong> старих чернеток постів окремим cron-воркфлоу</li>
-        <li>51 нода n8n, повністю в production — підтверджено власником: "все працює ідеально"</li>
-      </ul>
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker" data-i18n="about.kicker">About</div>
+      <h2 class="sec-title" data-i18n="about.title">Engineer who ships whole systems, not just prompts</h2>
     </div>
-
-    <!-- Agent 3 -->
-    <div class="agent-card">
-      <div class="agent-head">
-        <h3 class="agent-title"><span class="agent-num">03</span>Агент відгуків</h3>
-        <span class="status-badge status-progress">🟡 Збірка завершена</span>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about.p1">I'm <strong>Andrii Sokolov</strong>, an AI automation engineer based in Ukraine. I build <strong>autonomous AI agents</strong> that live inside real business workflows — qualifying leads, generating content, handling support, syncing reviews and orchestrating each other.</p>
+        <p data-i18n="about.p2">My flagship is <strong>AgentUp</strong>, a full AI automation platform I created and run entirely on my own: a Python/LangGraph reasoning core, n8n as the webhook and I/O layer, a Supabase (PostgreSQL) database I modelled myself, a Chatwoot handoff layer and a hand-coded website with a client cabinet. Every agent, every table, every automation and every line of the frontend is mine.</p>
+        <p data-i18n="about.p3">I care about the parts that make agents actually production-grade: <strong>identity resolution across channels</strong>, <strong>allowlist-based database access</strong>, human-in-the-loop confirmation gates, anti-hallucination guards on tool calls and honest live testing against production — not demos that only work on a happy path.</p>
       </div>
-      <p class="agent-desc">
-        Раз на 2 години підтягує нові Google-відгуки компанії, дедуплікує і шле сповіщення в Telegram;
-        окремий control-бот відповідає на запитання про статистику відгуків.
-      </p>
-      <div class="flow">
-        <span class="flow-chip">Cron (раз на 2 год)</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">Google Places API</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">дедуплікація в Supabase</span><span class="flow-arrow">→</span>
-        <span class="flow-chip">Telegram-сповіщення</span>
-      </div>
-      <ul class="agent-points">
-        <li><strong>Дедуплікація без зайвої логіки</strong> — через UNIQUE-обмеження бази даних і insert-стратегію "ignore-duplicates" замість окремої IF-перевірки</li>
-        <li><strong>Економна модель для простих задач</strong> — control-бот для Q&A по відгуках свідомо працює на дешевшій LLM, бо складність задачі цього не вимагає</li>
-      </ul>
-    </div>
-
-    <!-- Agent 4 -->
-    <div class="agent-card">
-      <div class="agent-head">
-        <h3 class="agent-title"><span class="agent-num">04</span>Агент лідогенерації</h3>
-        <span class="status-badge status-planned">📋 Заплановано</span>
-      </div>
-      <p class="agent-desc">
-        Моніторинг Instagram-хештегів і Telegram-груп для пошуку потенційних клієнтів, AI-оцінка
-        релевантності кожного профілю за шкалою 1–10, автоматичний персоналізований opener.
-      </p>
-      <ul class="agent-points">
-        <li><strong>Рішення на основі ROI</strong>: свідома відмова від платного LinkedIn-скрапінгу (Phantombuster, $56–69/міс без підтвердженого результату) на користь безкоштовних офіційних API-каналів</li>
-      </ul>
-    </div>
-
-    <!-- Agent 5 -->
-    <div class="agent-card">
-      <div class="agent-head">
-        <h3 class="agent-title"><span class="agent-num">05</span>Менеджер-агент</h3>
-        <span class="status-badge status-planned">📋 Заплановано</span>
-      </div>
-      <p class="agent-desc">
-        Головний Telegram-бот для власника бізнесу: класифікує намір, роутить задачі до потрібного
-        агента, видає тижневі звіти й статус усіх агентів одним повідомленням (<code>/report</code>, <code>/status</code>).
-      </p>
-    </div>
-  </section>
-
-  <!-- LANDING + INFRA -->
-  <section class="block">
-    <h2 class="h2">Маркетинговий сайт і інфраструктура</h2>
-    <p class="h2-sub">Все, що тримає систему живою поза самими агентами</p>
-    <ul class="agent-points">
-      <li><strong>agentup.agency</strong> — двомовний (укр/eng) маркетинговий сайт без фреймворків (HTML/CSS/JS), світла й темна тема, адаптивне гамбургер-меню, чат-віджет з прямим переходом у Telegram-бот</li>
-      <li><strong>Self-hosted n8n</strong> на Hetzner VPS за реверс-проксі Traefik з автоматичним SSL (Let's Encrypt), окремий nginx-контейнер для статики сайту</li>
-      <li><strong>Керування доменами й DNS</strong>: міграція з тимчасового DuckDNS на власний домен без простою, окремий certresolver під новий домен</li>
-      <li><strong>Журнал змін сервера</strong> ведеться окремим файлом з датами — будь-яка production-зміна задокументована й відновлювана</li>
-    </ul>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="block">
-    <h2 class="h2">Навички, застосовані в проєкті</h2>
-    <p class="h2-sub">Те, що реально використано при побудові системи — не теорія</p>
-
-    <div class="skill-group">
-      <div class="skill-group-title">n8n / Workflow automation</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">AI Agent nodes</span>
-        <span class="skill-tag">Structured Output Parser</span>
-        <span class="skill-tag">Memory buffers</span>
-        <span class="skill-tag">Custom Code-ноди (fetch)</span>
-        <span class="skill-tag">Webhook-дизайн</span>
-        <span class="skill-tag">Ідемпотентність / race conditions</span>
-        <span class="skill-tag">Cron-тригери</span>
+      <div class="info-card">
+        <h4 data-i18n="about.card.title">At a glance</h4>
+        <ul class="info-list">
+          <li><span class="k" data-i18n="about.card.role">Role</span><span class="v" data-i18n="about.card.role.v">AI Automation Engineer</span></li>
+          <li><span class="k" data-i18n="about.card.exp">Experience</span><span class="v" data-i18n="about.card.exp.v">Since 2025 · 2 yrs</span></li>
+          <li><span class="k" data-i18n="about.card.loc">Location</span><span class="v" data-i18n="about.card.loc.v">Kyiv, Ukraine · Remote</span></li>
+          <li><span class="k" data-i18n="about.card.focus">Focus</span><span class="v">LangGraph · Agents</span></li>
+          <li><span class="k" data-i18n="about.card.langs">Languages</span><span class="v" data-i18n="about.card.langs.v">UA · RU · EN</span></li>
+        </ul>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group">
-      <div class="skill-group-title">LLM / Prompt engineering</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">Мультимодельна маршрутизація</span>
-        <span class="skill-tag">Системні промпти для кваліфікації лідів</span>
-        <span class="skill-tag">Generation з контролем тону й мови</span>
-        <span class="skill-tag">Structured output / nullable schemas</span>
-        <span class="skill-tag">Tool calling</span>
+<!-- ========== SKILLS ========== -->
+<section class="section-alt" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker" data-i18n="skills.kicker">Core skills</div>
+      <h2 class="sec-title" data-i18n="skills.title">The stack I build production agents with</h2>
+      <p class="sec-sub" data-i18n="skills.sub">Every AgentUp agent runs on this stack — LangGraph reasoning cores driven by n8n webhooks, backed by Supabase and connected to real channels.</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="ic">🧠</div>
+        <h4 data-i18n="skill.langgraph.t">LangGraph Agent Design</h4>
+        <p data-i18n="skill.langgraph.d">Stateful graphs: context-load → LLM with bind_tools → tools node, with interrupt()-based human confirmation, per-thread failure limits and anti-hallucination guards on tool calls.</p>
+        <div class="tag-row"><span class="tag">LangGraph</span><span class="tag">Python</span><span class="tag">tool-calling</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="ic">🔗</div>
+        <h4 data-i18n="skill.n8n.t">n8n Orchestration</h4>
+        <p data-i18n="skill.n8n.d">n8n as the pure I/O layer — webhooks everywhere: Telegram, Instagram, WhatsApp, Chatwoot and site widgets all flow through n8n into the core. Fan-in workflows, callback routing, credential control.</p>
+        <div class="tag-row"><span class="tag">n8n</span><span class="tag">webhooks</span><span class="tag">automation</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="ic">🗄️</div>
+        <h4 data-i18n="skill.db.t">Database &amp; Backend</h4>
+        <p data-i18n="skill.db.d">Self-designed Supabase/PostgreSQL schema — leads, contacts, dm_history, reviews, audit logs — with allowlist access control and a full tool-call audit trail. FastAPI services on Docker.</p>
+        <div class="tag-row"><span class="tag">Supabase</span><span class="tag">PostgreSQL</span><span class="tag">FastAPI</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="ic">🪪</div>
+        <h4 data-i18n="skill.identity.t">Identity &amp; Security</h4>
+        <p data-i18n="skill.identity.d">"One brain, many channels" identity resolution, bridge-token channel merging, IDOR/prompt-injection-safe tool design, HMAC-signed webhooks and stored-XSS hardening.</p>
+        <div class="tag-row"><span class="tag">identity</span><span class="tag">access control</span><span class="tag">security</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="ic">💬</div>
+        <h4 data-i18n="skill.llm.t">LLM Integration</h4>
+        <p data-i18n="skill.llm.d">OpenRouter model tiering (cheap / medium / expensive) with cost-aware routing, Claude &amp; Gemini, FLUX image generation, Tavily web search — matched to each task's complexity and budget.</p>
+        <div class="tag-row"><span class="tag">OpenRouter</span><span class="tag">Claude</span><span class="tag">Gemini</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="ic">🎨</div>
+        <h4 data-i18n="skill.frontend.t">Full-Stack Frontend</h4>
+        <p data-i18n="skill.frontend.d">Hand-coded landing page and client cabinet (no framework): i18n, History-API routing, live Supabase data, billing, realtime chat — plus Docker, Traefik and nginx deploys.</p>
+        <div class="tag-row"><span class="tag">HTML/CSS/JS</span><span class="tag">Docker</span><span class="tag">Traefik</span></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group">
-      <div class="skill-group-title">Інтеграції API</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">Meta / Instagram Graph API</span>
-        <span class="skill-tag">Telegram Bot API</span>
-        <span class="skill-tag">Google Places API</span>
-        <span class="skill-tag">Notion API</span>
-        <span class="skill-tag">Buffer MCP</span>
-        <span class="skill-tag">FLUX.2 image generation</span>
+<!-- ========== FLAGSHIP ========== -->
+<section id="flagship">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker" data-i18n="flag.kicker">Flagship project</div>
+      <h2 class="sec-title" data-i18n="flag.title">AgentUp — an AI platform I built entirely myself</h2>
+      <p class="sec-sub" data-i18n="flag.sub">Not a course project. A live platform with a public site, a paying-client cabinet, 10 AI agents and a database I designed — every part built and deployed by me.</p>
+    </div>
+    <div class="flagship">
+      <div class="flagship-top">
+        <span class="badge" data-i18n="flag.badge">Live in production</span>
+        <h3>AgentUp</h3>
+        <span class="site-link">agentup.agency</span>
+      </div>
+      <p data-i18n="flag.desc">An AI automation platform for businesses. I own the whole stack end-to-end: the LangGraph reasoning core, the n8n webhook layer that carries every channel, the Supabase database, the Chatwoot handoff integration, the deploy infrastructure on a Hetzner VPS, and the full website with a self-service client cabinet.</p>
+      <div class="built-grid">
+        <div class="built-item">
+          <h4><span class="n">01</span> <span data-i18n="flag.b1.t">The website</span></h4>
+          <p data-i18n="flag.b1.d">Hand-coded bilingual landing page — no framework, no builder. Chat widget, live Google reviews, GA4, Traefik + nginx deploy.</p>
+        </div>
+        <div class="built-item">
+          <h4><span class="n">02</span> <span data-i18n="flag.b2.t">The client cabinet</span></h4>
+          <p data-i18n="flag.b2.d">A full personal dashboard: auth, live data, Paddle billing, file uploads with AI vision, admin inbox, onboarding tour and an AI copilot.</p>
+        </div>
+        <div class="built-item">
+          <h4><span class="n">03</span> <span data-i18n="flag.b3.t">The database</span></h4>
+          <p data-i18n="flag.b3.d">A Supabase/PostgreSQL schema I modelled from scratch: leads, contacts, cross-channel history, reviews, knowledge base and a full audit log.</p>
+        </div>
+        <div class="built-item">
+          <h4><span class="n">04</span> <span data-i18n="flag.b4.t">Every automation</span></h4>
+          <p data-i18n="flag.b4.d">All webhooks, cron jobs, publishing pipelines, notification fan-ins and channel bridges — orchestrated through n8n and the Python core.</p>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group">
-      <div class="skill-group-title">Бази даних</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">Supabase / PostgreSQL</span>
-        <span class="skill-tag">Проєктування схеми CRM</span>
-        <span class="skill-tag">Дедуплікація на рівні БД</span>
-        <span class="skill-tag">PostgREST-запити</span>
+<!-- ========== AGENTS ========== -->
+<section class="section-alt" id="agents">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker" data-i18n="ag.kicker">The AI agents</div>
+      <h2 class="sec-title" data-i18n="ag.title">10 production AI agents — recounted in full</h2>
+      <p class="sec-sub" data-i18n="ag.sub">Every one is a LangGraph reasoning core (or n8n AI agent) reached through n8n webhooks. Together they run the whole business — from first DM to closed lead, from content to support.</p>
+    </div>
+    <div class="agent-grid">
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">01</div>
+          <div><h4 data-i18n="ag1.t">Unified Client Agent</h4><div class="role" data-i18n="ag1.r">client_agent · multi-channel brain</div></div>
+        </div>
+        <p data-i18n="ag1.d">One agent, one memory across Instagram DM, Telegram, WhatsApp and the website chat. Qualifies leads, answers from the knowledge base, resolves identity across every channel and hands off to a human when ready.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip">4 channels</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">02</div>
+          <div><h4 data-i18n="ag2.t">Site FAQ Assistant</h4><div class="role" data-i18n="ag2.r">site_assistant · anonymous consultant</div></div>
+        </div>
+        <p data-i18n="ag2.d">The anonymous AI consultant embedded on the website. Answers visitor questions about the service in their own language and warms them toward a real conversation — no tools, no lead capture, pure Q&amp;A.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip" data-i18n="chip.faq">FAQ / Q&amp;A</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">03</div>
+          <div><h4 data-i18n="ag3.t">Content Agent</h4><div class="role" data-i18n="ag3.r">content_agent · multi-platform</div></div>
+        </div>
+        <p data-i18n="ag3.d">Generates posts for Instagram, Telegram, LinkedIn and X — each in its own tone and language — creates images with FLUX, shows a preview with approve / regenerate / cancel buttons, and publishes autonomously on schedule.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip">4 platforms</span><span class="chip">FLUX</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">04</div>
+          <div><h4 data-i18n="ag4.t">Lead-Gen Agent</h4><div class="role" data-i18n="ag4.r">leads_agent · outreach engine</div></div>
+        </div>
+        <p data-i18n="ag4.d">Semi-autonomous prospecting: scans Telegram groups on a schedule, scores every message 1–10, verifies businesses with web search, queues candidates for approval and sends outreach through a dedicated userbot account.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip">scoring</span><span class="chip">userbot</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">05</div>
+          <div><h4 data-i18n="ag5.t">Manager Agent</h4><div class="role" data-i18n="ag5.r">manager · orchestrator</div></div>
+        </div>
+        <p data-i18n="ag5.d">The command center in the HQ Telegram group. Reads and writes the database through an allowlist, triggers other agents, generates reports and images, and gates every risky write behind human confirmation.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip">10 tools</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">06</div>
+          <div><h4 data-i18n="ag6.t">Router Agent</h4><div class="role" data-i18n="ag6.r">router · intent classifier</div></div>
+        </div>
+        <p data-i18n="ag6.d">The "agent inside the agent system": classifies intent from the HQ group and routes each request to the right specialist agent. The dispatcher that makes many agents behave like one coordinated team.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip" data-i18n="chip.intent">intent routing</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">07</div>
+          <div><h4 data-i18n="ag7.t">Cabinet AI Agent</h4><div class="role" data-i18n="ag7.r">cabinet_agent · files &amp; data</div></div>
+        </div>
+        <p data-i18n="ag7.d">The paying client's private AI chat inside the cabinet. Reads uploaded files with vision (PDF, DOCX, XLSX, images), answers questions about the client's own data and drives their agent configuration.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip">vision</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">08</div>
+          <div><h4 data-i18n="ag8.t">Tech Support Agent</h4><div class="role" data-i18n="ag8.r">cabinet_support_agent · support</div></div>
+        </div>
+        <p data-i18n="ag8.d">The cabinet's support channel: an AI first responder that answers technical questions and cleanly hands off to a human through Chatwoot, keeping a single shared conversation history.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip">Chatwoot</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">09</div>
+          <div><h4 data-i18n="ag9.t">Admin Copilot Agent</h4><div class="role" data-i18n="ag9.r">cabinet_copilot_agent · read-only</div></div>
+        </div>
+        <p data-i18n="ag9.d">A read-only assistant for me as the admin: reads a client's full context and writes onboarding briefs, but by design never writes to the database — a deliberate trust boundary, not a limitation.</p>
+        <div class="agent-meta"><span class="chip live" data-i18n="chip.live">Live</span><span class="chip">LangGraph</span><span class="chip" data-i18n="chip.ro">read-only</span></div>
+      </div>
+
+      <div class="agent-card">
+        <div class="agent-head">
+          <div class="agent-num">10</div>
+          <div><h4 data-i18n="ag10.t">Reviews Agent</h4><div class="role" data-i18n="ag10.r">reviews · reputation sync</div></div>
+        </div>
+        <p data-i18n="ag10.d">Pulls new Google reviews on a cron, deduplicates and stores them in Supabase, notifies the team and feeds the live testimonials block on the website — closing the reputation loop automatically.</p>
+        <div class="agent-meta"><span class="chip">n8n</span><span class="chip">cron</span><span class="chip">Google Places</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== ARCHITECTURE ========== -->
+<section id="architecture">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker" data-i18n="arch.kicker">How it's built</div>
+      <h2 class="sec-title" data-i18n="arch.title">The architecture behind every agent</h2>
+      <p class="sec-sub" data-i18n="arch.sub">The same pattern powers all 10 agents: n8n carries the I/O, a LangGraph core does the thinking, Supabase holds the data, Chatwoot handles human handoff.</p>
+    </div>
+    <div class="arch-flow">
+      <div class="flow-line">
+        <span class="flow-node" data-i18n="arch.f1">Channel (IG / TG / WA / site)</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-node">n8n webhook</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-node" data-i18n="arch.f3">LangGraph core</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-node" data-i18n="arch.f4">tools + Supabase</span>
+        <span class="flow-arrow">→</span>
+        <span class="flow-node" data-i18n="arch.f5">reply / Chatwoot handoff</span>
       </div>
     </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">DevOps / Інфраструктура</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">Docker / Docker Compose</span>
-        <span class="skill-tag">Traefik</span>
-        <span class="skill-tag">Let's Encrypt SSL</span>
-        <span class="skill-tag">Hetzner VPS</span>
-        <span class="skill-tag">Доменний менеджмент</span>
+    <div class="arch-grid">
+      <div class="arch-card">
+        <h4 data-i18n="arch.c1.t">Graph pattern</h4>
+        <p data-i18n="arch.c1.d">load_context → agent (LLM + bind_tools) → tools, looping until done. Every tool call is logged, allowlist-checked and, where risky, gated behind human confirmation via interrupt().</p>
+      </div>
+      <div class="arch-card">
+        <h4 data-i18n="arch.c2.t">One brain, many channels</h4>
+        <p data-i18n="arch.c2.d">A contacts + channel_identities model resolves the same person across Instagram, Telegram, WhatsApp and the site. Channels merge only through signed bridge tokens — never by guessing.</p>
+      </div>
+      <div class="arch-card">
+        <h4 data-i18n="arch.c3.t">Allowlist access control</h4>
+        <p data-i18n="arch.c3.d">A single access-control layer decides exactly which tables and fields each agent can read or write. Anything not on the list is physically unreachable — no matter what the LLM is asked to do.</p>
+      </div>
+      <div class="arch-card">
+        <h4 data-i18n="arch.c4.t">Injection-safe tools</h4>
+        <p data-i18n="arch.c4.d">Client-facing agents never take identity from the LLM's arguments — only from verified graph state — closing off IDOR and prompt-injection vectors by construction.</p>
+      </div>
+      <div class="arch-card">
+        <h4 data-i18n="arch.c5.t">Cost-aware model tiers</h4>
+        <p data-i18n="arch.c5.d">Cheap / medium / expensive model tiers via OpenRouter, chosen per task. Simple classification runs on small models; orchestration and reasoning get the strong ones.</p>
+      </div>
+      <div class="arch-card">
+        <h4 data-i18n="arch.c6.t">Honest production testing</h4>
+        <p data-i18n="arch.c6.d">Every feature is tested through the real path against production — real webhooks, real API responses, cleanup verified — not a mock that only passes the happy path.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group">
-      <div class="skill-group-title">Frontend</div>
-      <div class="skill-cloud">
-        <span class="skill-tag">Адаптивна верстка</span>
-        <span class="skill-tag">Мультимовність</span>
-        <span class="skill-tag">Темна / світла тема</span>
-        <span class="skill-tag">Чат-віджети</span>
+<!-- ========== EXPERIENCE ========== -->
+<section class="section-alt" id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-kicker" data-i18n="exp.kicker">Experience</div>
+      <h2 class="sec-title" data-i18n="exp.title">2 years — from learning to a live platform</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">2026 — <span data-i18n="exp.now">present</span></div>
+        <h4 data-i18n="exp.1.t">Founder &amp; AI Automation Engineer — AgentUp</h4>
+        <p data-i18n="exp.1.d">Designed and shipped a full AI automation platform solo: 10 production LangGraph/n8n agents, a Supabase database, a client cabinet and the whole website. Built the agent fleet on a Python/LangGraph core with identity resolution across channels, allowlist access control and human-in-the-loop confirmation.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2025</div>
+        <h4 data-i18n="exp.2.t">Diving into AI automation</h4>
+        <p data-i18n="exp.2.d">Spent the year going deep on the field: LLM APIs and prompt engineering, LangGraph and agent design, n8n orchestration, Supabase/PostgreSQL and the deploy stack — building up the skills that AgentUp is now built on.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CHALLENGES -->
-  <section class="block">
-    <h2 class="h2">Інженерні задачі, які довелось вирішити</h2>
-    <p class="h2-sub">Реальні production-проблеми, а не навчальні приклади</p>
-
-    <div class="challenge">
-      <strong>Подвійна обробка одного повідомлення Instagram</strong>
-      Meta ретраїла webhook, бо обробка через AI займала 20–30 секунд і не вкладалась у таймаут. Вирішено патерном миттєвого ACK: воркфлоу підтверджує отримання за &lt;1 секунду, ще до виклику AI.
+<!-- ========== CONTACT ========== -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <h2 data-i18n="contact.title">Let's build something autonomous</h2>
+      <p data-i18n="contact.sub">Open to AI engineering, automation and agent-development roles — remote or Kyiv-based. Let's talk.</p>
+      <div class="contact-links">
+        <a href="mailto:anri.sokol.work@gmail.com">✉️ anri.sokol.work@gmail.com</a>
+        <a href="https://t.me/andruha_sokol" target="_blank" rel="noopener">✈️ @andruha_sokol</a>
+        <a href="tel:+380935114098">📞 +380 93 511 40 98</a>
+        <a href="https://agentup.agency" target="_blank" rel="noopener">🌐 agentup.agency</a>
+      </div>
     </div>
-    <div class="challenge">
-      <strong>"Тихий" провал structured-парсера через несумісну схему</strong>
-      AI Agent інколи повертав вивід, загорнутий у додаткове поле, що ламало Structured Output Parser. Виправлено явною nullable-схемою і обробкою помилки замість мовчазного fallback.
-    </div>
-    <div class="challenge">
-      <strong>Прихований стан credentials у production-воркфлоу</strong>
-      Воркфлоу позначався як активний, але реально не працював — частина нод втратила прив'язку credentials, що інструмент керування воркфлоу не показував напряму. Діагностовано через прямий запит до REST API n8n.
-    </div>
-    <div class="challenge">
-      <strong>Розпізнавання "людина перехопила діалог" без штучного таймера</strong>
-      Замість таймера on/off для AI — реальний сигнал: власна відповідь власника бізнесу в Instagram відрізняється від echo самого бота і миттєво вимикає AI для цього ліда.
-    </div>
-  </section>
-
-</div>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
-    <p><span class="accent-line">Андрій Соколов</span> · anri.sokol.work@gmail.com · +380 93 511 40 98 · <a href="https://t.me/andruha_sokol" style="color:inherit">@andruha_sokol</a> · <a href="https://agentup.agency" style="color:inherit">agentup.agency</a></p>
+    <span data-i18n="footer">© 2026 Andrii Sokolov · AI Automation Engineer · Built from scratch, like everything else here.</span>
   </div>
 </footer>
+
+<script>
+/* ============ i18n ============ */
+const I18N = {
+  uk: {
+    "brand": 'Андрій <span>Соколов</span>',
+    "hero.available": "Відкритий до пропозицій · Дистанційно / Київ, Україна",
+    "hero.title": 'Інженер AI-автоматизації та <span class="grad">розробник систем на LangGraph</span>',
+    "hero.subtitle": "Проєктую й запускаю у продакшн мультиагентні AI-системи — ядра міркувань на LangGraph, підключені через вебхуки n8n до Supabase і реальних бізнес-каналів.",
+    "hero.lede": "Засновник і єдиний інженер AgentUp — платформи AI-автоматизації, де я з нуля побудував 10 продакшн AI-агентів, увесь сайт, кожну автоматизацію та всю базу даних.",
+    "hero.cta1": "Переглянути 10 AI-агентів →",
+    "hero.cta2": "Зв'язатися зі мною",
+    "stat.agents": "Продакшн AI-агентів",
+    "stat.years": "Років в AI-автоматизації",
+    "stat.channels": "Каналів і поверхонь",
+    "stat.solo": "Побудовано самостійно",
+    "about.kicker": "Про мене",
+    "about.title": "Інженер, що будує цілі системи, а не лише промпти",
+    "about.p1": 'Я — <strong>Андрій Соколов</strong>, інженер AI-автоматизації з України. Я будую <strong>автономних AI-агентів</strong>, які живуть усередині реальних бізнес-процесів — кваліфікують лідів, генерують контент, ведуть підтримку, синхронізують відгуки й оркеструють один одного.',
+    "about.p2": 'Мій флагман — <strong>AgentUp</strong>, повноцінна платформа AI-автоматизації, яку я створив і веду повністю самостійно: ядро міркувань на Python/LangGraph, n8n як шар вебхуків та I/O, база даних Supabase (PostgreSQL), яку я змоделював сам, шар передачі людині через Chatwoot і власноруч написаний сайт з особистим кабінетом клієнта. Кожен агент, кожна таблиця, кожна автоматизація і кожен рядок фронтенду — мої.',
+    "about.p3": 'Мене цікавить те, що робить агентів справді продакшн-рівня: <strong>резолвінг ідентичності між каналами</strong>, <strong>доступ до бази за принципом allowlist</strong>, підтвердження людиною в циклі, захист від галюцинацій у викликах інструментів і чесне живе тестування проти продакшну — а не демо, що працює лише на "щасливому шляху".',
+    "about.card.title": "Коротко",
+    "about.card.role": "Роль",
+    "about.card.role.v": "Інженер AI-автоматизації",
+    "about.card.exp": "Досвід",
+    "about.card.exp.v": "З 2025 · 2 роки",
+    "about.card.loc": "Локація",
+    "about.card.loc.v": "Київ, Україна · Дистанційно",
+    "about.card.focus": "Фокус",
+    "about.card.langs": "Мови",
+    "about.card.langs.v": "UA · RU · EN",
+    "skills.kicker": "Ключові навички",
+    "skills.title": "Стек, на якому я будую продакшн-агентів",
+    "skills.sub": "Кожен агент AgentUp працює на цьому стеку — ядра міркувань на LangGraph, керовані вебхуками n8n, з базою Supabase і підключенням до реальних каналів.",
+    "skill.langgraph.t": "Дизайн агентів на LangGraph",
+    "skill.langgraph.d": "Стейтові графи: завантаження контексту → LLM з bind_tools → нода інструментів, з підтвердженням людиною через interrupt(), лімітами провалів на потік і захистом від галюцинацій у викликах.",
+    "skill.n8n.t": "Оркестрація на n8n",
+    "skill.n8n.d": "n8n як чистий шар I/O — вебхуки всюди: Telegram, Instagram, WhatsApp, Chatwoot і віджети сайту проходять через n8n у ядро. Fan-in воркфлоу, роутинг колбеків, контроль креденшелів.",
+    "skill.db.t": "База даних і бекенд",
+    "skill.db.d": "Самостійно спроєктована схема Supabase/PostgreSQL — ліди, контакти, історія переписки, відгуки, аудит-логи — з доступом за allowlist і повним аудитом викликів інструментів. Сервіси на FastAPI у Docker.",
+    "skill.identity.t": "Ідентичність і безпека",
+    "skill.identity.d": '"Один мозок, багато каналів" — резолвінг ідентичності, злиття каналів через bridge-токени, дизайн інструментів, захищений від IDOR/prompt-injection, вебхуки з HMAC-підписом і захист від stored-XSS.',
+    "skill.llm.t": "Інтеграція LLM",
+    "skill.llm.d": "Тірування моделей через OpenRouter (дешева / середня / дорога) з урахуванням вартості, Claude і Gemini, генерація зображень FLUX, веб-пошук Tavily — під складність і бюджет кожної задачі.",
+    "skill.frontend.t": "Full-Stack фронтенд",
+    "skill.frontend.d": "Власноруч написані лендинг і кабінет клієнта (без фреймворку): i18n, роутинг через History API, живі дані Supabase, білінг, чат у реальному часі — плюс Docker, Traefik і деплой на nginx.",
+    "flag.kicker": "Флагманський проєкт",
+    "flag.title": "AgentUp — AI-платформа, яку я побудував повністю сам",
+    "flag.sub": "Не навчальний проєкт. Жива платформа з публічним сайтом, кабінетом для платних клієнтів, 10 AI-агентами і спроєктованою мною базою — кожну частину побудував і задеплоїв я.",
+    "flag.badge": "У продакшні",
+    "flag.desc": "Платформа AI-автоматизації для бізнесу. Я володію всім стеком від початку до кінця: ядро міркувань на LangGraph, шар вебхуків n8n, що несе кожен канал, база Supabase, інтеграція передачі людині через Chatwoot, інфраструктура деплою на Hetzner VPS і повний сайт із самообслуговуваним кабінетом клієнта.",
+    "flag.b1.t": "Сайт",
+    "flag.b1.d": "Власноруч написаний двомовний лендинг — без фреймворку, без конструктора. Чат-віджет, живі відгуки Google, GA4, деплой на Traefik + nginx.",
+    "flag.b2.t": "Кабінет клієнта",
+    "flag.b2.d": "Повноцінний особистий дашборд: авторизація, живі дані, білінг Paddle, завантаження файлів з AI-vision, адмін-інбокс, онбординг-тур і AI-копілот.",
+    "flag.b3.t": "База даних",
+    "flag.b3.d": "Схема Supabase/PostgreSQL, змодельована з нуля: ліди, контакти, крос-канальна історія, відгуки, база знань і повний аудит-лог.",
+    "flag.b4.t": "Кожна автоматизація",
+    "flag.b4.d": "Усі вебхуки, крони, пайплайни публікацій, fan-in сповіщення й мости між каналами — оркестровані через n8n і Python-ядро.",
+    "ag.kicker": "AI-агенти",
+    "ag.title": "10 продакшн AI-агентів — повний перерахунок",
+    "ag.sub": "Кожен — це ядро міркувань на LangGraph (або AI-агент n8n), досяжне через вебхуки n8n. Разом вони ведуть увесь бізнес — від першого DM до закритого ліда, від контенту до підтримки.",
+    "ag1.t": "Єдиний клієнтський агент",
+    "ag1.r": "client_agent · мозок усіх каналів",
+    "ag1.d": "Один агент, одна пам'ять для Instagram DM, Telegram, WhatsApp і чату на сайті. Кваліфікує лідів, відповідає з бази знань, резолвить ідентичність між усіма каналами й передає людині, коли час.",
+    "ag2.t": "FAQ-асистент сайту",
+    "ag2.r": "site_assistant · анонімний консультант",
+    "ag2.d": "Анонімний AI-консультант, вбудований у сайт. Відповідає на питання відвідувачів про послугу їхньою мовою і підводить до реальної розмови — без інструментів, без збору лідів, чистий Q&A.",
+    "ag3.t": "Контент-агент",
+    "ag3.r": "content_agent · мультиплатформний",
+    "ag3.d": "Генерує пости для Instagram, Telegram, LinkedIn і X — кожен своїм тоном і мовою — створює зображення через FLUX, показує прев'ю з кнопками схвалити / переробити / скасувати й публікує автономно за розкладом.",
+    "ag4.t": "Агент лідогенерації",
+    "ag4.r": "leads_agent · рушій аутрічу",
+    "ag4.d": "Напівавтономний пошук клієнтів: сканує Telegram-групи за розкладом, оцінює кожне повідомлення 1–10, перевіряє бізнеси через веб-пошук, ставить кандидатів у чергу на схвалення й надсилає аутріч через окремий юзербот-акаунт.",
+    "ag5.t": "Агент-менеджер",
+    "ag5.r": "manager · оркестратор",
+    "ag5.d": "Командний центр у HQ-групі Telegram. Читає й пише базу через allowlist, запускає інших агентів, генерує звіти й зображення і закриває кожен ризикований запис підтвердженням людини.",
+    "ag6.t": "Агент-роутер",
+    "ag6.r": "router · класифікатор намірів",
+    "ag6.d": '"Агент усередині системи агентів": класифікує наміри з HQ-групи й маршрутизує кожен запит до потрібного агента-спеціаліста. Диспетчер, що змушує багатьох агентів поводитися як одна злагоджена команда.',
+    "ag7.t": "AI-агент кабінету",
+    "ag7.r": "cabinet_agent · файли й дані",
+    "ag7.d": "Приватний AI-чат платного клієнта в кабінеті. Читає завантажені файли через vision (PDF, DOCX, XLSX, зображення), відповідає на питання про власні дані клієнта й керує конфігурацією його агента.",
+    "ag8.t": "Агент техпідтримки",
+    "ag8.r": "cabinet_support_agent · підтримка",
+    "ag8.d": "Канал підтримки кабінету: AI перша лінія, що відповідає на технічні питання й чисто передає людині через Chatwoot, зберігаючи єдину спільну історію переписки.",
+    "ag9.t": "Агент-копілот адміна",
+    "ag9.r": "cabinet_copilot_agent · тільки читання",
+    "ag9.d": "Read-only асистент для мене як адміна: читає повний контекст клієнта й пише онбординг-брифи, але за задумом ніколи не пише в базу — свідома межа довіри, а не обмеження.",
+    "ag10.t": "Агент відгуків",
+    "ag10.r": "reviews · синхронізація репутації",
+    "ag10.d": "Забирає нові відгуки Google за кроном, дедуплікує й зберігає в Supabase, сповіщає команду й живить блок живих відгуків на сайті — автоматично замикаючи репутаційний цикл.",
+    "chip.live": "Живий",
+    "chip.faq": "FAQ / Q&A",
+    "chip.intent": "роутинг намірів",
+    "chip.ro": "тільки читання",
+    "arch.kicker": "Як це побудовано",
+    "arch.title": "Архітектура за кожним агентом",
+    "arch.sub": "Той самий патерн живить усі 10 агентів: n8n несе I/O, ядро на LangGraph думає, Supabase зберігає дані, Chatwoot передає людині.",
+    "arch.f1": "Канал (IG / TG / WA / сайт)",
+    "arch.f3": "Ядро LangGraph",
+    "arch.f4": "інструменти + Supabase",
+    "arch.f5": "відповідь / передача в Chatwoot",
+    "arch.c1.t": "Патерн графа",
+    "arch.c1.d": "load_context → агент (LLM + bind_tools) → інструменти, у циклі до завершення. Кожен виклик логується, перевіряється по allowlist і, де ризиковано, закривається підтвердженням людини через interrupt().",
+    "arch.c2.t": "Один мозок, багато каналів",
+    "arch.c2.d": "Модель contacts + channel_identities резолвить одну людину між Instagram, Telegram, WhatsApp і сайтом. Канали зливаються лише через підписані bridge-токени — ніколи навздогад.",
+    "arch.c3.t": "Доступ за allowlist",
+    "arch.c3.d": "Єдиний шар контролю доступу вирішує, які саме таблиці й поля кожен агент може читати чи писати. Усе, чого немає у списку, фізично недосяжне — що б не попросили в LLM.",
+    "arch.c4.t": "Інструменти, захищені від інжекції",
+    "arch.c4.d": "Клієнтські агенти ніколи не беруть ідентичність з аргументів LLM — тільки з перевіреного стану графа — закриваючи вектори IDOR і prompt-injection за конструкцією.",
+    "arch.c5.t": "Тіри моделей за вартістю",
+    "arch.c5.d": "Тіри моделей дешева / середня / дорога через OpenRouter, обрані під задачу. Проста класифікація йде на малих моделях; оркестрація й міркування — на сильних.",
+    "arch.c6.t": "Чесне продакшн-тестування",
+    "arch.c6.d": "Кожна фіча тестується реальним шляхом проти продакшну — справжні вебхуки, справжні відповіді API, перевірене прибирання — а не мок, що проходить лише щасливий шлях.",
+    "exp.kicker": "Досвід",
+    "exp.title": "2 роки — від навчання до живої платформи",
+    "exp.now": "зараз",
+    "exp.1.t": "Засновник та інженер AI-автоматизації — AgentUp",
+    "exp.1.d": "Спроєктував і запустив повну платформу AI-автоматизації самостійно: 10 продакшн-агентів на LangGraph/n8n, база Supabase, кабінет клієнта й увесь сайт. Побудував флот агентів на Python/LangGraph-ядрі з резолвінгом ідентичності між каналами, доступом за allowlist і підтвердженням людиною в циклі.",
+    "exp.2.t": "Занурення в AI-автоматизацію",
+    "exp.2.d": "Рік глибокого вивчення напряму: LLM API і промпт-інжиніринг, LangGraph і дизайн агентів, оркестрація n8n, Supabase/PostgreSQL і деплой-стек — напрацював навички, на яких тепер побудовано AgentUp.",
+    "contact.title": "Побудуймо щось автономне",
+    "contact.sub": "Відкритий до ролей в AI-інженерії, автоматизації та розробці агентів — дистанційно або в Києві. Напишіть.",
+    "footer": "© 2026 Андрій Соколов · Інженер AI-автоматизації · Побудовано з нуля, як і все тут."
+  }
+};
+
+let curLang = "en";
+const EN_SNAPSHOT = {};
+
+function snapshotEN() {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    EN_SNAPSHOT[el.getAttribute("data-i18n")] = el.innerHTML;
+  });
+}
+
+function setLang(lang) {
+  curLang = lang;
+  const dict = lang === "en" ? EN_SNAPSHOT : I18N[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.lang = lang === "uk" ? "uk" : "en";
+  document.getElementById("langEN").classList.toggle("on", lang === "en");
+  document.getElementById("langUK").classList.toggle("on", lang === "uk");
+  try { localStorage.setItem("portfolio-lang", lang); } catch (e) {}
+}
+
+/* ============ theme ============ */
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute("data-theme") || "light";
+  const next = cur === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", next);
+  document.getElementById("themeIcon").textContent = next === "dark" ? "☀️" : "🌙";
+  try { localStorage.setItem("portfolio-theme", next); } catch (e) {}
+}
+
+/* ============ init ============ */
+(function init() {
+  snapshotEN();
+  let savedLang = "en", savedTheme = "light";
+  try {
+    savedLang = localStorage.getItem("portfolio-lang") || "en";
+    savedTheme = localStorage.getItem("portfolio-theme") || "light";
+  } catch (e) {}
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  document.getElementById("themeIcon").textContent = savedTheme === "dark" ? "☀️" : "🌙";
+  if (savedLang !== "en") setLang(savedLang);
+})();
+</script>
 
 </body>
 </html>
