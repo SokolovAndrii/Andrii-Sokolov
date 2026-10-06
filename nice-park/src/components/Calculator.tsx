@@ -20,8 +20,8 @@ export function Calculator() {
   const sliderId = useId();
 
   const fill = ((gross - c.min) / (c.max - c.min)) * 100;
-  const premiumPos = ((c.premiumFrom - c.min) / (c.max - c.min)) * 100;
-  const premiumOn = gross >= c.premiumFrom;
+  const thresholdPos = ((c.threshold - c.min) / (c.max - c.min)) * 100;
+  const bonusOn = r.rate === c.bonusShare;
 
   // Сегменти каси: на руки / пальне / власник
   const segments = [
@@ -58,15 +58,19 @@ export function Calculator() {
                   {fmt.format(gross)}
                   <span className="ml-2 text-2xl text-white/50 sm:text-3xl">грн</span>
                 </span>
-                {premiumOn && (
-                  <m.span
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="inline-flex items-center gap-1 rounded-full bg-taxi px-2.5 py-1 text-xs font-semibold text-ink"
-                  >
-                    <Sparkles className="h-3.5 w-3.5" aria-hidden />+ можлива премія
-                  </m.span>
-                )}
+                <m.span
+                  key={bonusOn ? "on" : "off"}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                    bonusOn ? "bg-taxi text-ink" : "bg-white/10 text-white/70"
+                  }`}
+                >
+                  <Sparkles className="h-3.5 w-3.5" aria-hidden />
+                  {bonusOn
+                    ? "65% з усієї каси"
+                    : `ще ${fmt.format(c.threshold - gross)} грн до 65%`}
+                </m.span>
               </div>
 
               <div className="relative mt-4">
@@ -84,10 +88,10 @@ export function Calculator() {
                 />
                 <div
                   className="pointer-events-none absolute top-[calc(50%+14px)] -translate-x-1/2 text-center"
-                  style={{ left: `calc(${premiumPos}% + ${(0.5 - premiumPos / 100) * 32}px)` }}
+                  style={{ left: `calc(${thresholdPos}% + ${(0.5 - thresholdPos / 100) * 32}px)` }}
                 >
                   <div className="mx-auto h-2 w-px bg-white/40" />
-                  <div className="whitespace-nowrap text-[11px] text-white/50">премії від {fmt.format(c.premiumFrom)}</div>
+                  <div className="whitespace-nowrap text-[11px] text-white/50">65% від {fmt.format(c.threshold)}</div>
                 </div>
               </div>
               <div className="mt-6 flex justify-between text-xs text-white/40">
