@@ -21,7 +21,7 @@ export function Calculator() {
 
   const fill = ((gross - c.min) / (c.max - c.min)) * 100;
   const thresholdPos = ((c.threshold - c.min) / (c.max - c.min)) * 100;
-  const bonusOn = gross > c.threshold;
+  const bonusOn = r.rate === c.bonusShare;
 
   // Сегменти каси: на руки / пальне / власник
   const segments = [
@@ -59,12 +59,17 @@ export function Calculator() {
                   <span className="ml-2 text-2xl text-white/50 sm:text-3xl">грн</span>
                 </span>
                 <m.span
-                  initial={false}
-                  animate={{ opacity: bonusOn ? 1 : 0, scale: bonusOn ? 1 : 0.85 }}
-                  className="inline-flex items-center gap-1 rounded-full bg-taxi/15 px-2.5 py-1 text-xs font-semibold text-taxi"
-                  aria-hidden={!bonusOn}
+                  key={bonusOn ? "on" : "off"}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                    bonusOn ? "bg-taxi text-ink" : "bg-white/10 text-white/70"
+                  }`}
                 >
-                  <Sparkles className="h-3.5 w-3.5" aria-hidden /> 65% з каси понад {fmt.format(c.threshold)}
+                  <Sparkles className="h-3.5 w-3.5" aria-hidden />
+                  {bonusOn
+                    ? "65% з усієї каси"
+                    : `ще ${fmt.format(c.threshold - gross)} грн до 65%`}
                 </m.span>
               </div>
 
@@ -95,7 +100,7 @@ export function Calculator() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
-                <Stat icon={<Wallet className="h-4 w-4" />} label={t.driver} value={r.driverShare} />
+                <Stat icon={<Wallet className="h-4 w-4" />} label={`${t.driver} · ${Math.round(r.rate * 100)}%`} value={r.driverShare} />
                 <Stat icon={<Fuel className="h-4 w-4" />} label={t.fuel} value={r.fuel} negative />
                 <Stat icon={<Flame className="h-4 w-4" />} label={t.netWeek} value={r.netWeek} highlight />
                 <Stat icon={<CalendarDays className="h-4 w-4" />} label={t.netMonth} value={r.netMonth} highlight big />

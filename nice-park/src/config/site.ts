@@ -29,11 +29,11 @@ export const calculator = {
   max: 45_000,
   step: 500,
   defaultValue: 25_000,
-  /** Каса за тиждень, понад яку діє підвищений відсоток (65%) */
+  /** Каса за тиждень, від якої діє підвищений відсоток (65% з усієї каси) */
   threshold: 30_000,
   /** Частка водія до порогу */
   baseShare: 0.6,
-  /** Частка водія з суми понад поріг */
+  /** Частка водія з усієї каси, якщо каса ≥ порогу */
   bonusShare: 0.65,
   /** Пальне (газ) як частка від каси: ~10 л/100 км, ~1 300 км на 25 000 каси */
   fuelRate: 0.22,
@@ -43,6 +43,8 @@ export const calculator = {
 
 export type CalcResult = {
   gross: number;
+  /** Відсоток водія, що застосовано (0.6 або 0.65) */
+  rate: number;
   driverShare: number;
   fuel: number;
   ownerShare: number;
@@ -52,13 +54,14 @@ export type CalcResult = {
 
 export function calculateIncome(gross: number): CalcResult {
   const c = calculator;
-  const base = Math.min(gross, c.threshold) * c.baseShare;
-  const bonus = Math.max(gross - c.threshold, 0) * c.bonusShare;
-  const driverShare = base + bonus;
+  // Ступінчаста шкала: досягли порогу — підвищений відсоток з усієї каси
+  const rate = gross >= c.threshold ? c.bonusShare : c.baseShare;
+  const driverShare = gross * rate;
   const fuel = gross * c.fuelRate;
   const netWeek = driverShare - fuel;
   return {
     gross,
+    rate,
     driverShare,
     fuel,
     ownerShare: gross - driverShare,
@@ -139,7 +142,7 @@ export const conditions = {
   items: [
     {
       title: "60% каси після комісії сервісу",
-      text: "З каси понад 30 000 грн за тиждень — 65%. Чим більше їздите, тим вищий ваш відсоток.",
+      text: "Каса від 30 000 грн за тиждень — 65% з усієї суми. Чим більше їздите, тим вищий ваш відсоток.",
     },
     {
       title: "Зрозумілий план",
@@ -214,7 +217,7 @@ export const faq = {
     },
     {
       q: "Як рахується бонус 65%?",
-      a: "65% нараховується на суму каси понад 30 000 грн за тиждень. Наприклад, при касі 35 000 грн: 60% з 30 000 + 65% з 5 000.",
+      a: "Якщо каса за тиждень від 30 000 грн, ви отримуєте 65% з усієї суми, а не тільки з надлишку. Наприклад, при касі 35 000 грн ваша частка — 22 750 грн замість 21 000.",
     },
     {
       q: "Чи можна працювати тільки вечорами?",
