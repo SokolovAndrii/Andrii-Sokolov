@@ -9,6 +9,7 @@ const nav = [
   { href: "#benefits", label: "Переваги" },
   { href: "#calculator", label: "Калькулятор" },
   { href: "#conditions", label: "Умови" },
+  { href: "#rules", label: "Правила" },
   { href: "#faq", label: "FAQ" },
 ];
 
