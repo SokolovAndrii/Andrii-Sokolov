@@ -64,7 +64,7 @@ export function Calculator() {
                   className="inline-flex items-center gap-1 rounded-full bg-taxi/15 px-2.5 py-1 text-xs font-semibold text-taxi"
                   aria-hidden={!bonusOn}
                 >
-                  <Sparkles className="h-3.5 w-3.5" aria-hidden /> 65% з понадпланової каси
+                  <Sparkles className="h-3.5 w-3.5" aria-hidden /> 65% з каси понад {fmt.format(c.threshold)}
                 </m.span>
               </div>
 
@@ -86,7 +86,7 @@ export function Calculator() {
                   style={{ left: `calc(${thresholdPos}% + ${(0.5 - thresholdPos / 100) * 32}px)` }}
                 >
                   <div className="mx-auto h-2 w-px bg-white/40" />
-                  <div className="whitespace-nowrap text-[11px] text-white/50">план {fmt.format(c.threshold)}</div>
+                  <div className="whitespace-nowrap text-[11px] text-white/50">65% від {fmt.format(c.threshold)}</div>
                 </div>
               </div>
               <div className="mt-6 flex justify-between text-xs text-white/40">
