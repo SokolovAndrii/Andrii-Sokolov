@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #0b0f19;
+  color: #e6e9f2;
+}
+
+::selection {
+  background: #ffc83d;
+  color: #0b0f19;
+}
+
+@layer components {
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-card backdrop-blur-xl;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-taxi/30 bg-taxi/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-taxi;
+  }
+  .h2 {
+    @apply mt-4 font-display text-[1.75rem] font-bold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-5xl;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-taxi px-6 py-4 font-display text-base font-bold text-ink transition hover:bg-taxi-soft focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-taxi/40 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-6 py-4 font-display text-base font-semibold text-white transition hover:border-white/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/20 active:scale-[0.98];
+  }
+  .card-hover {
+    @apply transition duration-300 hover:-translate-y-1 hover:border-taxi/40 hover:bg-white/[0.07] hover:shadow-glow;
+  }
+}
+
+/* Слайдер калькулятора */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+.range:focus-visible {
+  outline: none;
+}
+.range::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #ffc83d 0%,
+    #ffc83d var(--fill),
+    rgba(255, 255, 255, 0.1) var(--fill)
+  );
+}
+.range::-moz-range-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.range::-moz-range-progress {
+  height: 10px;
+  border-radius: 999px;
+  background: #ffc83d;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -11px;
+  height: 32px;
+  width: 32px;
+  border-radius: 999px;
+  background: #fff;
+  border: 6px solid #ffc83d;
+  box-shadow: 0 0 0 6px rgba(255, 200, 61, 0.18), 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.2s;
+}
+.range::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 999px;
+  background: #fff;
+  border: 6px solid #ffc83d;
+  box-shadow: 0 0 0 6px rgba(255, 200, 61, 0.18);
+}
+.range:focus-visible::-webkit-slider-thumb,
+.range:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 10px rgba(255, 200, 61, 0.3), 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hero: поява по словах без JS */
+@keyframes heroIn {
+  from {
+    /* 0.01, а не 0: Chrome не рахує повністю прозорий текст як кандидат LCP */
+    opacity: 0.01;
+    transform: translate3d(0, 0.5em, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-word,
+.hero-fade {
+  animation: heroIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
