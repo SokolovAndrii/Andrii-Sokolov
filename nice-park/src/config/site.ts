@@ -15,10 +15,11 @@ export const site = {
       "Автопарк таксі Nice Park у Києві: 60% каси водію, а від 30 000 грн за тиждень — 65% з усієї каси. Авто тільки ваше — працюйте самі, без змінника (або 2/2, 3/3 у парі). Авто на газу, виплати щотижня на ФОП. Заповніть анкету за 3 хвилини.",
   },
   contacts: {
-    telegram: "@PLACEHOLDER",
-    telegramUrl: "https://t.me/PLACEHOLDER",
-    phone: "+380 XX XXX XX XX",
-    phoneHref: "tel:+380000000000",
+    // Порожній рядок — Telegram не показується. Приклад: "@nicepark", "https://t.me/nicepark"
+    telegram: "",
+    telegramUrl: "",
+    phone: "+380 96 511 40 98",
+    phoneHref: "tel:+380965114098",
   },
   year: 2026,
 };

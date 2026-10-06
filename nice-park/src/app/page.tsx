@@ -19,6 +19,7 @@ const jsonLd = [
     url: site.url,
     slogan: site.slogan,
     areaServed: site.city,
+    telephone: site.contacts.phone.replace(/\s/g, ""),
   },
   {
     "@context": "https://schema.org",

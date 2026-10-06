@@ -13,9 +13,11 @@ export function Footer() {
           </span>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
-          <a href={site.contacts.telegramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition hover:text-taxi">
-            <Send className="h-4 w-4" aria-hidden /> Telegram: {site.contacts.telegram}
-          </a>
+          {site.contacts.telegram && (
+            <a href={site.contacts.telegramUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition hover:text-taxi">
+              <Send className="h-4 w-4" aria-hidden /> Telegram: {site.contacts.telegram}
+            </a>
+          )}
           <a href={site.contacts.phoneHref} className="inline-flex items-center gap-2 transition hover:text-taxi">
             <Phone className="h-4 w-4" aria-hidden /> {site.contacts.phone}
           </a>
