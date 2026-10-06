@@ -38,7 +38,7 @@ export function Calculator() {
   });
 
   return (
-    <section id="calculator" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="calculator" className="relative scroll-mt-20 py-14 sm:py-28">
       <div
         className="pointer-events-none absolute inset-x-0 top-1/3 -z-10 mx-auto h-[500px] max-w-4xl rounded-full bg-[radial-gradient(ellipse,rgba(124,92,255,0.22),transparent_65%)] blur-2xl"
         aria-hidden
@@ -46,7 +46,7 @@ export function Calculator() {
       <div className="container-x">
         <SectionHeading eyebrow={t.eyebrow} title={t.title} />
 
-        <Reveal className="glass mt-10 overflow-hidden p-5 sm:p-8 lg:p-10">
+        <Reveal className="glass mt-8 overflow-hidden p-4 min-[390px]:p-5 sm:mt-10 sm:p-8 lg:p-10">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-center">
             {/* Ліва частина: слайдер і цифри */}
             <div>
@@ -99,8 +99,8 @@ export function Calculator() {
                 <span>{fmt.format(c.max)}</span>
               </div>
 
-              <div className="mt-6 grid grid-cols-2 gap-3">
-                <Stat icon={<Wallet className="h-4 w-4" />} label={`${t.driver} · ${Math.round(r.rate * 100)}%`} value={r.driverShare} />
+              <div className="mt-6 grid grid-cols-2 gap-2.5 sm:gap-3">
+                <Stat icon={<Wallet className="h-4 w-4" />} label={t.driver} chip={`${Math.round(r.rate * 100)}%`} value={r.driverShare} />
                 <Stat icon={<Fuel className="h-4 w-4" />} label={t.fuel} value={r.fuel} negative />
                 <Stat icon={<Flame className="h-4 w-4" />} label={t.netWeek} value={r.netWeek} highlight />
                 <Stat icon={<CalendarDays className="h-4 w-4" />} label={t.netMonth} value={r.netMonth} highlight big />
@@ -109,7 +109,7 @@ export function Calculator() {
 
             {/* Права частина: donut + stacked bar */}
             <div className="flex flex-col items-center">
-              <div className="relative h-56 w-56 sm:h-64 sm:w-64">
+              <div className="relative h-52 w-52 sm:h-64 sm:w-64">
                 <svg viewBox="0 0 200 200" className="h-full w-full -rotate-90" role="img" aria-label="Розподіл каси">
                   <circle cx="100" cy="100" r={R} fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="22" />
                   {arcs.map((a) => (
@@ -184,9 +184,11 @@ function Stat({
   highlight,
   negative,
   big,
+  chip,
 }: {
   icon: React.ReactNode;
   label: string;
+  chip?: string;
   value: number;
   highlight?: boolean;
   negative?: boolean;
@@ -202,7 +204,10 @@ function Stat({
         <span className={highlight ? "text-taxi" : "text-white/50"} aria-hidden>
           {icon}
         </span>
-        {label}
+        <span className="leading-tight">{label}</span>
+        {chip && (
+          <span className="ml-auto rounded-full bg-taxi/15 px-1.5 py-0.5 text-[11px] font-bold text-taxi">{chip}</span>
+        )}
       </div>
       <div
         className={`mt-1.5 font-display font-bold tabular-nums ${

@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  // hover-ефекти лише на пристроях з мишкою — на телефоні картки не «залипають» після тапу
+  future: { hoverOnlyWhenSupported: true },
   content: ["./src/**/*.{ts,tsx}"],
   theme: {
     extend: {

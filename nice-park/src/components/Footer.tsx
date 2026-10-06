@@ -18,7 +18,7 @@ export function Footer() {
               <Send className="h-4 w-4" aria-hidden /> Telegram: {site.contacts.telegram}
             </a>
           )}
-          <a href={site.contacts.phoneHref} className="inline-flex items-center gap-2 transition hover:text-taxi">
+          <a href={site.contacts.phoneHref} className="-my-2 inline-flex items-center gap-2 py-3 text-base font-semibold text-white transition hover:text-taxi">
             <Phone className="h-4 w-4" aria-hidden /> {site.contacts.phone}
           </a>
         </div>

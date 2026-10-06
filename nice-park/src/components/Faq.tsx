@@ -11,7 +11,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="faq" className="relative scroll-mt-20 py-14 sm:py-28">
       <div className="container-x max-w-3xl">
         <SectionHeading eyebrow={faq.eyebrow} title={faq.title} center />
         <Reveal className="mt-10 space-y-3">

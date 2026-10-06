@@ -12,7 +12,7 @@ export function Steps() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   return (
-    <section id="steps" className="relative scroll-mt-20 py-20 sm:py-28">
+    <section id="steps" className="relative scroll-mt-20 py-14 sm:py-28">
       <div className="container-x">
         <SectionHeading eyebrow={steps.eyebrow} title={steps.title} />
 
