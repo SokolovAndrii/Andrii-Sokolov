@@ -5,7 +5,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function Requirements() {
   return (
-    <section id="requirements" className="relative scroll-mt-20 py-20 sm:py-24">
+    <section id="requirements" className="relative scroll-mt-20 py-14 sm:py-24">
       <div className="container-x">
         <SectionHeading eyebrow={requirements.eyebrow} title={requirements.title} center />
         <Stagger as="ul" className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
