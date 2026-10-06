@@ -8,6 +8,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { MobileCta } from "@/components/MobileCta";
 import { Requirements } from "@/components/Requirements";
+import { Rules } from "@/components/Rules";
 import { Steps } from "@/components/Steps";
 import { faq, site } from "@/config/site";
 
@@ -41,6 +42,7 @@ export default function Home() {
         <Benefits />
         <Calculator />
         <Conditions />
+        <Rules />
         <Requirements />
         <Steps />
         <Faq />
